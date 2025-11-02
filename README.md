@@ -33,16 +33,16 @@ The dataset contains sales and profit data segmented by country, product, and bu
 ## 📈 Dashboard Views
 
 ### Executive Summary  
-![Executive Summary](visuals/executive-summary.png)
+![Executive Summary](Visuals/Executive_Summary.png) 
 
 ### Monthly Performance  
-![Monthly Performance](visuals/monthly-performance.png)
+![Monthly Performance](Visuals/Monthly_Performance_Tracker.png)
 
 ### Discount Strategy  
-![Discount Strategy](visuals/discount-strategy.png)
+![Discount Strategy](Visuals/Discount_Strategy_Analysis.png)
 
 ### Product Level Analysis  
-![Product Level](visuals/product-level.png)
+![Product Level](Visuals/Product_Level_Analysis.png)
 
 
 ## 🚀 Business Impact
