@@ -1,0 +1,99 @@
+Project 3 - Microsoft Financial Sample Data
+
+SQL code used
+
+1.
+create database microsoft_financial
+
+2.
+use microsoft_financial
+
+
+3.
+CREATE TABLE microsoft_data (
+	Segment VARCHAR(50),
+	Country VARCHAR(50),
+	Product VARCHAR(50),
+	Discount_band VARCHAR(50),
+	Units_Sold DECIMAL(10,2),
+	Manufacturing_Price DECIMAL(10,2),
+	Sale_Price DECIMAL(10,2),
+	Gross_Sales DECIMAL(10,2),
+	Discounts DECIMAL(10,2),
+	Discount_Percent DECIMAL(10,2),
+	Sales DECIMAL(10,2),
+	COGS DECIMAL(10,2),
+	Profit DECIMAL(10,2),
+	Profit_Margin DECIMAL(10,2),
+	Date DATE,
+	Month_Number INT,
+	Month_Name VARCHAR(50),
+	Year INT
+)
+
+4.
+Total Profit by Segment
+select segment, sum(profit)
+from microsoft_data
+group by segment
+
+5.
+Total Profit by Country
+select country, sum(profit)
+from microsoft_data
+group by country
+
+6.
+Monthly Net Profit Trend
+select year, month_name, sum(profit)
+from microsoft_data
+group by year, month_name
+order by year, month_name 
+
+7.
+Average Discount % by Discount Band
+select discount_band, avg(discount_percent)
+from microsoft_data
+group by discount_band
+order by discount_band
+
+8.
+Losses incurred Months--wise (Profit < 0)
+select year, month_name, sum(profit)
+from microsoft_data
+where profit < 0
+group by year, month_name
+order by year, Month_name
+
+9.
+Profit by Country
+select country, sum(profit) as total_profit
+from microsoft_data
+group by country 
+order by total_profit desc
+
+10.
+Profit Margin by Segment
+select segment, avg(profit_margin) as pr_marg
+from microsoft_data
+group by segment 
+order by pr_marg desc
+
+11.
+Product-wise Units Sold and Profit
+select product, sum(units_sold), sum(profit)
+from microsoft_data
+group by product
+
+12.
+Discount Band vs Profit Margin
+select discount_band, Avg(profit_margin)*100 as Profit_margin
+from microsoft_data
+group by discount_band
+
+13.
+Year-over-Year Profit Comparison (only if multiple years exist)
+SELECT Year, SUM(Profit) AS Total_Profit
+FROM microsoft_data
+GROUP BY Year
+ORDER BY Year
